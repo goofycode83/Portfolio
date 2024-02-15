@@ -16,10 +16,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { Image } from 'mui-image'
 import tempImg from '../img/Profile picture.jpg'
+import LineWeightIcon from '@mui/icons-material/LineWeight';
+import Container from '@mui/material/Container';
+import { useNavigate } from 'react-router-dom';
+
 
 const drawerWidth = 240;
 
@@ -71,6 +73,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const NavBar = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -80,8 +83,9 @@ const NavBar = () => {
     setOpen(false);
   };
 
-
     return (
+      <>
+      <Container  maxWidth="sm" >
         <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="fixed" open={open} color="transparent" elevation={0}>
@@ -91,8 +95,7 @@ const NavBar = () => {
               aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"
-              sx={{ mr: 2, ...(open && { display: 'none' }) }}
-            >
+              sx={{ mr: 2, ...(open && { display: 'none' }) }}>
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
@@ -106,39 +109,70 @@ const NavBar = () => {
             flexShrink: 0,
             '& .MuiDrawer-paper': {
               width: drawerWidth,
-              boxSizing: 'border-box',
+              boxSizing: 'border-box'
             },
           }}
           variant="persistent"
           anchor="left"
-          open={open}
-        >
+          open={open}>
           <DrawerHeader>
             <IconButton onClick={handleDrawerClose}>
               <h3 style={{textAlign: 'left'}}>Kaleab's</h3>  &nbsp; 
               <Image src={tempImg} alt='Profile Picture' style={{width:'35px', height: '35px',display: 'block', marginLeft:'auto',marginRight:'auto', borderRadius:'50%'}}/>
-              {theme.direction === 'ltr' ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
+              {theme.direction === 'ltr' ? (<ChevronLeftIcon />) : ( <ChevronRightIcon />)}
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <List>
-            {['Resume', 'ToDoList', 'Pokedex', 'Form'].map((text, index) => (
-              <ListItem key={text} disablePadding>
+          <List >    
+              <ListItem  onClick={() => {navigate("/")}} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    <LineWeightIcon/>
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText primary="DashBoard" />
                 </ListItemButton>
               </ListItem>
-            ))}
+               
+              <ListItem  onClick={() => {navigate("/Resume")}} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <LineWeightIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary="Resume" />
+                </ListItemButton>
+              </ListItem>
+
+              <ListItem onClick={() => {navigate("/ToDoList")}} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <LineWeightIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary="ToDoList" />
+                </ListItemButton>
+              </ListItem>
+
+              <ListItem  onClick={() => {navigate("/Pokedex")}} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <LineWeightIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary="Pokedex" />
+                </ListItemButton>
+              </ListItem>
+
+              <ListItem  onClick={() => {navigate("/Form")}} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <LineWeightIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary="Form" />
+                </ListItemButton>
+              </ListItem>
           </List>
         </Drawer>
       </Box>
+      </Container>
+      </>
     )
 }
 

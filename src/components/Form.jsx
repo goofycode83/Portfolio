@@ -2,16 +2,14 @@ import NavBar from "./NavBar"
 import React from 'react'
 import Container from '@mui/material/Container';
 
-const ToDoList = () => {
+const Form = () => {
     return (
     <>
-        <Container  maxWidth="sm" >
+    <Container  maxWidth="sm" >
           <NavBar/>
         </Container>
-        
-    <div style={{textAlign: 'center'}}>ToDoList</div>
+    <div style={{textAlign: 'center'}}>Form</div>
     </>
-    )
-}
+    )}
 
-export default ToDoList
+    export default Form;
