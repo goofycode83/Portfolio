@@ -29,11 +29,11 @@ export default function Resume() {
       marginLeft: 'auto',
       marginRight: 'auto'
       }}>
-      <Paper >
+      <Paper>
+       <a href = {PortfolioResume} target = "_blank" style={{border: '5px solid black'}}>To go to links click here !</a>
       <Document
       file={PortfolioResume}
-      onLoadError={console.error}
-    >
+      onLoadError={console.error}>
       <Page pageIndex={0}  scale={2.0} renderTextLayer={false} renderAnnotationLayer={false}/>
       </Document>
       </Paper>
