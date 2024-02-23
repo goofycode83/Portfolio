@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import NavBar from './NavBar';
 import Paper from '@mui/material/Paper';
 import PortfolioResume from '../documents/PortfolioResume.pdf'
+import Button from '@mui/material/Button';
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css"
 import {Document, Page, pdfjs} from 'react-pdf'
@@ -30,7 +31,10 @@ export default function Resume() {
       marginRight: 'auto'
       }}>
       <Paper>
-       <a href = {PortfolioResume} target = "_blank" style={{border: '5px solid black'}}>To go to links click here !</a>
+        <Button variant="contained">
+        <a href = {PortfolioResume} target = "_blank"  style={{color: 'black'
+    }}>links here </a>
+        </Button>
       <Document
       file={PortfolioResume}
       onLoadError={console.error}>

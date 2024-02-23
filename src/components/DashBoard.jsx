@@ -32,7 +32,7 @@ const Dashboard = () => {
         }} />
         </Container>
 
-        <Typography variant='h2'
+        <Typography variant='h1'
             style={{ 
             display: 'block',
             marginLeft: 'auto',
@@ -47,7 +47,7 @@ const Dashboard = () => {
             </Typography>
        
         <Container  maxWidth="sm">
-          <Typography variant="body1"
+          <Typography variant="h6"
            style={{
             display: 'block',
             marginLeft: 'auto',
